@@ -1,31 +1,37 @@
 const menuPrincipal = document.getElementById('menuPrincipal');
-const botaoHamburger = document.getElementById('botaoHamburger');
+const botaoHamburguer = document.getElementById('botaoHamburguer');
 const menuLateral = document.getElementById('menuLateral');
 const overlay = document.getElementById('overlay');
+const fecharMenu = document.getElementById('fecharMenu');
 
 const LIMITE_SCROLL = 100; // Limite de rolagem em pixels
+
+function fecharMenuLateral() {
+    menuLateral.classList.remove('aberto');
+    overlay.classList.remove('ativo');
+}
 
 window.addEventListener('scroll', function () {
     if (window.scrollY > LIMITE_SCROLL) {
         menuPrincipal.classList.add('recolhido');
-        botaoHamburger.classList.add('visivel');
+        botaoHamburguer.classList.add('visivel');
     } else {
         menuPrincipal.classList.remove('recolhido');
-        botaoHamburger.classList.remove('visivel');
-        menuLateral.classList.remove('aberto');
-        overlay.classList.remove('visivel');
+        botaoHamburguer.classList.remove('visivel');
+        fecharMenuLateral();
     }
 });
 
-botaoHamburger.addEventListener('click', function () {
+botaoHamburguer.addEventListener('click', function () {
     menuLateral.classList.toggle('aberto');
-    overlay.classList.toggle('visivel');
+    overlay.classList.toggle('ativo');
 });
 
-overlay.addEventListener('click', function () {
-    menuLateral.classList.remove('aberto');
-    overlay.classList.remove('visivel');
-});
+overlay.addEventListener('click', fecharMenuLateral);
+
+if (fecharMenu) {
+    fecharMenu.addEventListener('click', fecharMenuLateral);
+}
 
 let botao = document.getElementById('meuBotao');
 
