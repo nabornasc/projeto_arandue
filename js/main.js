@@ -1,4 +1,7 @@
 let botao = document.getElementById('meuBotao');
-botao.addEventListener('click', function () {
-    alert('Parabens! Você construiu sua primeira pagina!')
-})
+
+if (botao) {
+    botao.addEventListener('click', function () {
+        alert('Parabens! Você construiu sua primeira pagina!')
+    })
+}

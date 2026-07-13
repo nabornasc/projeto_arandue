@@ -5,17 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area de Teste</title>
-    <script>js / test.js</script>
     <link rel="stylesheet" href="css/styles.css">
+
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <button id="botaoHamburger" aria-label="Abrir Menu">☰
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div id="menuLateral" class="menu-lateral">
+        <button id="fecharMenu" aria-label="Fechar Menu">✖</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
 </head>
 
 <body>
-    <h1 id="textoPrincipal">
-        Minha primeira pagina =]
-    </h1>
+    <h1 id="textoPrincipal">Minha primeira pagina</h1>
     <button id="meuBotao">Clique aqui!</button>
+    <p id="meuParagrafo">Este é um parágrafo de exemplo.</p>
+    <h2>Lista de Itens</h2>
+    <ul id="minhaLista">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <p id="meuParagrafo2">Este é outro parágrafo de exemplo.</p>
+
+    <a href="./img/carro1.png" target="_blank">
+        <img src="./img/carro1.png" alt="Carro" id="minhaCarroA">
+    </a>
+
+    <a href="page2.html" class="botao-flut">➡️</a>
 
     <script src="js/main.js"></script>
 </body>
+
+
 
 </html>
