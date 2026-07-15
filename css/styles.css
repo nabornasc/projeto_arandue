@@ -1,0 +1,68 @@
+* {
+    margin: 0; /* Remove margem padrão de todos os elementos */
+    padding: 0; /* Remove espaçamento interno padrão de todos os elementos */
+    box-sizing: border-box; /* Faz padding/border entrarem na largura total, evitando estouro de tamanho */
+}
+
+body {
+    min-height: 200vh; /* Altura maior que a tela só pra dar scroll e testar o menu fixo */
+    background-color: #0d0d0d; /*Cor de fundo da página (preto quase puro) */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Fonte usada em todo o site */
+}
+
+.navbar {
+    position: fixed; /* Fixa o menu na tela, não rola junto com a página */
+    top: 0; /* Cola o menu na borda superior */
+    left: 0; /* Cola o menu na borda esquerda */
+    width: 100%; /* Menu ocupa toda a largura da tela */
+    display: flex; /* Ativa o Flexbox para alinhar os itens em linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 3rem;  /* Espaço entre os elementos diretos da navbar */
+    padding: 1.2rem 2rem; /* Espaçamento interno (cima/baixo e lados) do menu */
+    background: linear-gradient(90deg, /* Gradiente horizontal (90deg = esquerda pra direita) */
+      rgba(255, 0, 150, 0.15), /* Cor 1: rosa, bem transparente (15% opacidade) */
+      rgba(0, 200, 255, 0.15), /* Cor 2: azul, bem transparente */
+      rgba(150, 0, 255, 0.15)  /* Cor 3: roxo, bem transparente */
+    );
+    backdrop-filter: blur(10px); /* Desfoca o conteúdo que fica atrás do menu (efeito vidro) */
+    -webkit-backdrop-filter: blur(10px); /* Mesma coisa, mas pra navegadores baseados em WebKit (Safari) */
+    z-index: 1000; /* Garante que o menu fique por cima de todo o resto do conteúdo */
+}
+
+.nav-links {
+display: flex; /* Coloca os itens da lista lado a lado (em linha) */
+list-style: none; /* Remove as bolinhas/marcadores padrão da lista */
+gap: 2.5rem; /* Espaço entre cada link do menu */
+}
+
+.nav-links a {
+position: relative; /* Necessário caso queira posicionar algo dentro do link depois */
+color: #fff; /* Cor do texto do link (branco) */
+text-decoration: none; /* Remove o sublinhado padrão do link */
+font-size: 1.05rem; /* Tamanho da fonte do texto */
+font-weight: 500; /* Peso da fonte (meio-negrito) */
+letter-spacing: 0.5px; /* Espaçamento entre as letras */
+padding: 0.5rem 1.2rem; /* Espaço interno do botão/link (cima/baixo e lados) */
+border-radius: 8px; /* Arredonda as bordas do link */
+border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil e semi-transparente no estado normal */
+transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Suaviza todas as mudanças ao passar o mouse */
+}
+
+.nav-links a:hover {
+transform: scale(1.15); /* Aumenta o link em 15% (efeito de zoom) */
+color: #fff; /* Mantém o texto branco no hover */
+border-color: #0ff; /* Muda a borda para ciano ao passar o mouse */
+box-shadow: /* Empilha várias sombras coloridas pra simular o brilho neon */
+    0 0 5px #0ff, /* Camada 1: brilho mais próximo e intenso */
+    0 0 10px #0ff, /* Camada 2: brilho um pouco mais espalhado */
+    0 0 20px #0ff, /* Camada 3: brilho ainda mais espalhado */
+    0 0 40px rgba(0, 255, 255, 0.6); /* Camada 4: brilho externo, mais fraco e difuso */
+}
+
+/* conteúdo só de exemplo pra visualizar o efeito de scroll */
+.content {
+padding-top: 120px; /* Empurra o conteúdo pra baixo pra não ficar escondido atrás do menu fixo */
+text-align: center; /* Centraliza o texto */
+color: #888; /* Cor cinza pro texto de exemplo */
+}
