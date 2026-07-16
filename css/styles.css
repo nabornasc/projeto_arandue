@@ -1,68 +1,279 @@
 * {
-    margin: 0; /* Remove margem padrão de todos os elementos */
-    padding: 0; /* Remove espaçamento interno padrão de todos os elementos */
-    box-sizing: border-box; /* Faz padding/border entrarem na largura total, evitando estouro de tamanho */
+  margin: 0; /* Remove margem padrão de todos os elementos */
+  padding: 0; /* Remove espaçamento interno padrão de todos os elementos */
+  box-sizing: border-box; /* Faz padding/border entrarem na largura total, evitando estouro de tamanho */
 }
 
 body {
-    min-height: 200vh; /* Altura maior que a tela só pra dar scroll e testar o menu fixo */
-    background-color: #0d0d0d; /*Cor de fundo da página (preto quase puro) */
-    font-family: 'Segoe UI', Arial, sans-serif; /* Fonte usada em todo o site */
+  min-height: 200vh; /* Altura maior que a tela só pra dar scroll e testar o menu fixo */
+  background-color: #0d0d0d; /*Cor de fundo da página (preto quase puro) */
+  font-family: "Segoe UI", Arial, sans-serif; /* Fonte usada em todo o site */
 }
 
 .navbar {
-    position: fixed; /* Fixa o menu na tela, não rola junto com a página */
-    top: 0; /* Cola o menu na borda superior */
-    left: 0; /* Cola o menu na borda esquerda */
-    width: 100%; /* Menu ocupa toda a largura da tela */
-    display: flex; /* Ativa o Flexbox para alinhar os itens em linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
-    gap: 3rem;  /* Espaço entre os elementos diretos da navbar */
-    padding: 1.2rem 2rem; /* Espaçamento interno (cima/baixo e lados) do menu */
-    background: linear-gradient(90deg, /* Gradiente horizontal (90deg = esquerda pra direita) */
-      rgba(255, 0, 150, 0.15), /* Cor 1: rosa, bem transparente (15% opacidade) */
-      rgba(0, 200, 255, 0.15), /* Cor 2: azul, bem transparente */
-      rgba(150, 0, 255, 0.15)  /* Cor 3: roxo, bem transparente */
-    );
-    backdrop-filter: blur(10px); /* Desfoca o conteúdo que fica atrás do menu (efeito vidro) */
-    -webkit-backdrop-filter: blur(10px); /* Mesma coisa, mas pra navegadores baseados em WebKit (Safari) */
-    z-index: 1000; /* Garante que o menu fique por cima de todo o resto do conteúdo */
+  position: fixed; /* Fixa o menu na tela, não rola junto com a página */
+  top: 0; /* Cola o menu na borda superior */
+  left: 0; /* Cola o menu na borda esquerda */
+  width: 100%; /* Menu ocupa toda a largura da tela */
+  display: flex; /* Ativa o Flexbox para alinhar os itens em linha */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  gap: 3rem; /* Espaço entre os elementos diretos da navbar */
+  padding: 1.2rem 2rem; /* Espaçamento interno (cima/baixo e lados) do menu */
+  background: linear-gradient(
+    90deg,
+    /* Gradiente horizontal (90deg = esquerda pra direita) */
+    rgba(255, 0, 150, 0.15),
+    /* Cor 1: rosa, bem transparente (15% opacidade) */ rgba(0, 200, 255, 0.15),
+    /* Cor 2: azul, bem transparente */ rgba(150, 0, 255, 0.15)
+      /* Cor 3: roxo, bem transparente */
+  );
+  backdrop-filter: blur(
+    10px
+  ); /* Desfoca o conteúdo que fica atrás do menu (efeito vidro) */
+  -webkit-backdrop-filter: blur(
+    10px
+  ); /* Mesma coisa, mas pra navegadores baseados em WebKit (Safari) */
+  z-index: 1000; /* Garante que o menu fique por cima de todo o resto do conteúdo */
 }
 
 .nav-links {
-display: flex; /* Coloca os itens da lista lado a lado (em linha) */
-list-style: none; /* Remove as bolinhas/marcadores padrão da lista */
-gap: 2.5rem; /* Espaço entre cada link do menu */
+  display: flex; /* Coloca os itens da lista lado a lado (em linha) */
+  list-style: none; /* Remove as bolinhas/marcadores padrão da lista */
+  gap: 2.5rem; /* Espaço entre cada link do menu */
 }
 
 .nav-links a {
-position: relative; /* Necessário caso queira posicionar algo dentro do link depois */
-color: #fff; /* Cor do texto do link (branco) */
-text-decoration: none; /* Remove o sublinhado padrão do link */
-font-size: 1.05rem; /* Tamanho da fonte do texto */
-font-weight: 500; /* Peso da fonte (meio-negrito) */
-letter-spacing: 0.5px; /* Espaçamento entre as letras */
-padding: 0.5rem 1.2rem; /* Espaço interno do botão/link (cima/baixo e lados) */
-border-radius: 8px; /* Arredonda as bordas do link */
-border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil e semi-transparente no estado normal */
-transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Suaviza todas as mudanças ao passar o mouse */
+  position: relative; /* Necessário caso queira posicionar algo dentro do link depois */
+  color: #fff; /* Cor do texto do link (branco) */
+  text-decoration: none; /* Remove o sublinhado padrão do link */
+  font-size: 1.05rem; /* Tamanho da fonte do texto */
+  font-weight: 500; /* Peso da fonte (meio-negrito) */
+  letter-spacing: 0.5px; /* Espaçamento entre as letras */
+  padding: 0.5rem 1.2rem; /* Espaço interno do botão/link (cima/baixo e lados) */
+  border-radius: 8px; /* Arredonda as bordas do link */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil e semi-transparente no estado normal */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease; /* Suaviza todas as mudanças ao passar o mouse */
 }
 
 .nav-links a:hover {
-transform: scale(1.15); /* Aumenta o link em 15% (efeito de zoom) */
-color: #fff; /* Mantém o texto branco no hover */
-border-color: #0ff; /* Muda a borda para ciano ao passar o mouse */
-box-shadow: /* Empilha várias sombras coloridas pra simular o brilho neon */
-    0 0 5px #0ff, /* Camada 1: brilho mais próximo e intenso */
-    0 0 10px #0ff, /* Camada 2: brilho um pouco mais espalhado */
-    0 0 20px #0ff, /* Camada 3: brilho ainda mais espalhado */
-    0 0 40px rgba(0, 255, 255, 0.6); /* Camada 4: brilho externo, mais fraco e difuso */
+  transform: scale(1.15); /* Aumenta o link em 15% (efeito de zoom) */
+  color: #fff; /* Mantém o texto branco no hover */
+  border-color: #0ff; /* Muda a borda para ciano ao passar o mouse */
+  box-shadow: /* Empilha várias sombras coloridas pra simular o brilho neon */
+    0 0 5px #0ff,
+    /* Camada 1: brilho mais próximo e intenso */ 0 0 10px #0ff,
+    /* Camada 2: brilho um pouco mais espalhado */ 0 0 20px #0ff,
+    /* Camada 3: brilho ainda mais espalhado */ 0 0 40px rgba(0, 255, 255, 0.6); /* Camada 4: brilho externo, mais fraco e difuso */
 }
 
 /* conteúdo só de exemplo pra visualizar o efeito de scroll */
-.content {
-padding-top: 120px; /* Empurra o conteúdo pra baixo pra não ficar escondido atrás do menu fixo */
-text-align: center; /* Centraliza o texto */
-color: #888; /* Cor cinza pro texto de exemplo */
+.conteudo {
+  padding-top: 120px; /* Empurra o conteúdo pra baixo pra não ficar escondido atrás do menu fixo */
+  text-align: center; /* Centraliza o texto */
+  color: #888; /* Cor cinza pro texto de exemplo */
+}
+
+.banner {
+  color: #fff; /* Cor do texto do banner (branco) */
+  display: flex; /* Ativa o Flexbox para alinhar os itens em linha */
+  justify-content: center; /* Alinha os itens ao centro do banner */
+  align-items: center; /* Alinha os itens verticalmente */
+  width: 100%; /* Banner ocupa toda a largura da tela */
+  padding: 12rem 2rem; /* Espaçamento interno (cima/baixo e lados) do banner */
+  background: rgba(
+    255,
+    0,
+    150,
+    0.15
+  ); /* Fundo semi-transparente para destacar o banner */
+}
+
+/* ===== SEÇÃO DE PRODUTOS ===== */
+
+.banner img {
+  max-width: 50%; /* Garante que a imagem não ultrapasse a largura do banner */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.sec-produtos {
+  padding: 6rem 2rem; /* Espaçamento interno (cima/baixo e lados) da seção de produtos */
+  text-align: center; /* Centraliza o texto da seção de produtos */
+}
+
+.sec-produtos h2 {
+  color: #fff; /* Cor do título da seção de produtos (branco) */
+  font-size: 2.5rem; /* Tamanho da fonte do título */
+  margin-bottom: 3rem; /* Espaço abaixo do título */
+}
+
+.grid-produtos {
+  display: flex; /* Ativa o Flexbox para alinhar os itens em linha */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não couberem */
+  gap: 2rem; /* Espaço entre os itens da grade de produtos */
+}
+
+.caixa-produto {
+  position: relative; /* Necessário caso queira posicionar algo dentro da caixa depois */
+  width: 250px; /* Largura fixa para cada caixa de produto */
+  padding: 2rem 1.5rem; /* Espaçamento interno da caixa de produto */
+  background: linear-gradient(
+    160deg,
+    /* Gradiente diagonal (160deg = da esquerda pra baixo até a direita pra cima) */
+    rgba(255, 0, 150, 0.15),
+    /* Cor 1: rosa, bem transparente (15% opacidade) */ rgba(0, 200, 255, 0.15),
+    /* Cor 2: azul, bem transparente */ rgba(150, 0, 255, 0.15)
+      /* Cor 3: roxo, bem transparente */
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil e semi-transparente */
+  border-radius: 12px; /* Arredonda as bordas da caixa de produto */
+  text-align: center; /* Centraliza o conteúdo dentro da caixa de produto */
+  overflow: hidden; /* Garante que nada "vaze" para fora da caixa */
+  cursor: pointer; /* Muda o cursor para indicar que a caixa é clicável */
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease; /* Suaviza todas as mudanças ao passar o mouse */
+}
+
+.caixa-produto .icon {
+  font-size: 3rem; /* Tamanho do ícone dentro da caixa de produto */
+  margin-bottom: 1rem; /* Espaço abaixo do ícone */
+  transition: transform 0.4s ease; /* Suaviza a transição ao passar o mouse */
+}
+
+.caixa-produto h3 {
+  color: #fff; /* Cor do título do produto (branco) */
+  font-size: 1.5rem; /* Tamanho da fonte do título */
+  margin-bottom: 0.5rem; /* Espaço abaixo do título */
+}
+
+.caixa-produto p {
+  color: #aaa; /* Cor do texto da descrição do produto (cinza claro) */
+  font-size: 1rem; /* Tamanho da fonte da descrição */
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
+}
+
+.caixa-produto::before {
+  content: ""; /* Cria um pseudo-elemento vazio antes da caixa de produto */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta em relação à caixa de produto */
+  top: -50%; /* Posiciona o pseudo-elemento acima da caixa de produto */
+  left: -50%; /* Posiciona o pseudo-elemento à esquerda da caixa de produto */
+  width: 200%; /* Largura do pseudo-elemento é o dobro da caixa de produto */
+  height: 200%; /* Altura do pseudo-elemento é o dobro da caixa de produto */
+  background: linear-gradient(
+    45deg, /* Gradiente diagonal (45deg = da esquerda pra cima até a direita pra baixo) */
+    transparent, /* Começa transparente */
+     rgba(0, 255, 252, 0.1), /* Cor 1: ciano, bem transparente */
+     transparent /* Volta a ser transparente */
+  );
+  transform: rotate(0deg); /* Inicialmente, o pseudo-elemento não está rotacionado */
+  transition: transform 0.5s ease; /* Suaviza a rotação ao passar o mouse */
+  pointer-events: none; /* Garante que o pseudo-elemento não interfira na interação com a caixa de produto */
+}
+
+.caixa-produto:hover::before{
+    transform: rotate(360deg); /* Gira o pseudo-elemento 360 graus ao passar o mouse */
+}
+
+.caixa-produto:hover {
+  transform: translateY(-10px) scale(1.05); /* Move a caixa pra cima e aumenta levemente ao passar o mouse */
+  border-color: #0ff; /* Muda a borda para ciano ao passar o mouse */
+  box-shadow: /* Empilha várias sombras coloridas pra simular o brilho neon */
+    0 0 10px #0ff,
+    /* Camada 1: brilho mais próximo e intenso */ 0 0 5px #0ff,
+    /* Camada 2: brilho um pouco mais espalhado */ 0 0 10px #0ff,
+    /* Camada 3: brilho ainda mais espalhado */ 0 0 15px rgba(0, 255, 255, 0.6); /* Camada 4: brilho externo, mais fraco e difuso */
+}
+
+.caixa-produto:hover .icon {
+  transform: scale(1.2) rotate(5deg); /* Aumenta e gira levemente o ícone ao passar o mouse */
+}
+
+/* ===== ESTILOS DO RODAPÉ ===== */
+
+.footer {
+  background-color: #0d0d0d; /* Fundo escuro, combinando com o resto do site */
+  color: #fff; /* Texto branco */
+  padding-top: 3rem; /* Espaço interno no topo do rodapé */
+  margin-top: 4rem; /* Espaço entre o conteúdo da página e o rodapé */
+}
+
+.footer-container {
+  display: flex; /* Coloca as colunas lado a lado */
+  flex-wrap: wrap; /* Quebra linha em telas pequenas */
+  justify-content: space-between; /* Distribui as colunas com espaço entre elas */
+  gap: 2rem; /* Espaço entre as colunas */
+  max-width: 1200px; /* Largura máxima do conteúdo (evita esticar demais em telas grandes) */
+  margin: 0 auto; /* Centraliza o container na página */
+  padding: 0 2rem; /* Espaço interno nas laterais */
+}
+
+.footer-col {
+  flex: 1; /* Cada coluna cresce igualmente pra dividir o espaço disponível */
+  min-width: 200px; /* Largura mínima antes de quebrar linha no mobile */
+}
+
+.footer-col h3 {
+  font-size: 1.1rem; /* Tamanho do título de cada coluna */
+  margin-bottom: 1rem; /* Espaço entre o título e o conteúdo da coluna */
+  color: #0ff; /* Cor de destaque (ciano), combinando com seu tema neon */
+}
+
+.footer-col p {
+  color: #aaa; /* Cinza claro pro texto secundário */
+  font-size: 0.9rem; /* Tamanho menor pro texto */
+  line-height: 1.6; /* Espaçamento entre linhas, melhora legibilidade */
+  margin-bottom: 0.5rem; /* Espaço entre parágrafos */
+}
+
+.footer-links {
+  list-style: none; /* Remove as bolinhas da lista */
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem; /* Espaço entre cada link da lista */
+}
+
+.footer-links a {
+  color: #aaa; /* Cor cinza no estado normal */
+  text-decoration: none; /* Remove sublinhado padrão */
+  transition: color 0.3s ease; /* Suaviza a troca de cor no hover */
+}
+
+.footer-links a:hover {
+  color: #0ff; /* Fica ciano ao passar o mouse */
+}
+
+.footer-social {
+  display: flex; /* Coloca os ícones/links lado a lado */
+  flex-direction: column; /* Empilha verticalmente (pode trocar pra row se preferir lado a lado) */
+  gap: 0.6rem; /* Espaço entre cada rede social */
+}
+
+.footer-social a {
+  color: #aaa; /* Cor cinza no estado normal */
+  text-decoration: none; /* Remove sublinhado */
+  transition: color 0.3s ease; /* Suaviza a troca de cor */
+}
+
+.footer-social a:hover {
+  color: #0ff; /* Fica ciano no hover */
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil acima do copyright */
+  margin-top: 2.5rem; /* Espaço entre as colunas e essa linha final */
+  padding: 1.5rem 2rem; /* Espaço interno da faixa final */
+  text-align: center; /* Centraliza o texto de copyright */
+}
+
+.footer-bottom p {
+  color: #777; /* Cinza mais apagado, texto de menor destaque */
+  font-size: 0.85rem; /* Tamanho pequeno, texto secundário */
 }
