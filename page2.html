@@ -18,6 +18,17 @@
 
     <div class="conteudo">
       <p>Passe o mouse nos links do menu para ver o efeito neon ✨</p>
+
+      <label for="seletor-cor">Escolha a cor do background:</label>
+      <!-- <label> é o rótulo/texto que descreve o campo -->
+      <!-- for="seletor-cor" liga esse texto ao input com id="seletor-cor" -->
+      <!-- (clicando no texto do label, o input também recebe foco — bom pra acessibilidade) -->
+
+      <input type="color" id="seletor-cor" value="#0d0d0d" />
+      <!-- type="color" transforma o input num seletor de cores nativo -->
+      <!-- id="seletor-cor" é como o JS vai encontrar esse elemento -->
+      <!-- value="#0d0d0d" define a cor inicial já selecionada (a mesma do seu fundo atual) -->
+    
     </div>
 
     <!-- ===== SEÇÃO DE PRODUTOS ===== -->
@@ -53,6 +64,7 @@
         </div>
       </div>
     </div>
+    <script src="./js/main.js"></script>
   </body>
   
 </html>
