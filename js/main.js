@@ -22,3 +22,16 @@ seletorCor.addEventListener("input", function() {
     // aplica a cor selecionada como background do body
     // console.log(seletorCor.value); // mostra no console o valor da cor selecionada
 });
+
+
+const botoesComprar = document.querySelectorAll(".btn-comprar");
+// pega TODOS os botões de comprar (você tem 3 produtos = 3 botões)
+
+botoesComprar.forEach(function (botao) {
+    // forEach percorre cada item da lista, um por um
+    // "botao" é o nome que demos pra cada item individual dentro do loop
+
+    botao.addEventListener("click", function () {
+        alert("Produto adicionado ao carrinho! 🛒");
+    });
+});
